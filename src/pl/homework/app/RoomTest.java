@@ -1,5 +1,6 @@
 package pl.homework.app;
 
+import pl.homework.lib.AirConditioner;
 import pl.homework.lib.Room;
 import pl.homework.util.RoomUtility;
 
@@ -8,9 +9,10 @@ public class RoomTest {
     public static final double MIN_TEMPERATURE = 21.5;
 
     public static void main(String[] args) {
-        Room room = new Room(20, 25.5, true);
-        Room room2 = new Room(20, 21, true);
-        Room room3 = new Room(20, 23.5);
+        AirConditioner airConditioner = new AirConditioner(8);
+        Room room = new Room(20, 2.5, 25.5, airConditioner);
+        Room room2 = new Room(20, 2.5, 21, airConditioner);
+        Room room3 = new Room(20, 2.5, 23.5);
 
         RoomUtility roomUtility = new RoomUtility();
         System.out.println("Pierwszy " + roomUtility.roomInfo(room));

@@ -4,21 +4,31 @@ import static pl.homework.app.RoomTest.MIN_TEMPERATURE;
 
 public class Room {
     private double surfaceSize;
+//    Pole określające wysokoćś pomieszczenia umożliwi wyliczenie kubatury : surfaceSize*height
+    private double height;
     private double temperature;
-    private boolean airConditioner;
+//    private boolean airConditioner;  - pole typu boolean zamieniam na objekt AirConditioner
+    private AirConditioner airConditioner;
 
     public Room() {
     }
 
-    public Room(double surfaceSize, double temperature) {
+    public Room(double surfaceSize,double height, double temperature) {
+        setHeight(height);
         setSurfaceSize(surfaceSize);
         setTemperature(temperature);
     }
 
-    public Room(double surfaceSize, double temperature, boolean airConditioner) {
-        this(surfaceSize, temperature);
+    public Room(double surfaceSize,double height, double temperature, AirConditioner airConditioner) {
+        this(surfaceSize, height, temperature);
         setAirConditioner(airConditioner);
+//        setTemperature(temperature);
     }
+
+//    public Room(double surfaceSize, double temperature, boolean airConditioner) {
+//        this(surfaceSize, temperature);
+//        setAirConditioner(airConditioner);
+//    }
 
     public double getSurfaceSize() {
 
@@ -28,6 +38,22 @@ public class Room {
     public void setSurfaceSize(double surfaceSize) {
 
         this.surfaceSize = surfaceSize;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public AirConditioner getAirConditioner() {
+        return airConditioner;
+    }
+
+    public void setAirConditioner(AirConditioner airConditioner) {
+        this.airConditioner = airConditioner;
     }
 
     public double getTemperature() {
@@ -40,19 +66,19 @@ public class Room {
         this.temperature = temperature;
     }
 
-    public boolean isAirConditioner() {
-
-        return airConditioner;
-    }
-
-    public void setAirConditioner(boolean airConditioner) {
-
-        this.airConditioner = airConditioner;
-    }
+//    public boolean isAirConditioner() {
+//
+//        return airConditioner;
+//    }
+//
+//    public void setAirConditioner(boolean airConditioner) {
+//
+//        this.airConditioner = airConditioner;
+//    }
 
     public boolean temperatureReduction() {
-        if (getTemperature() > MIN_TEMPERATURE && isAirConditioner()) {
-            setTemperature(getTemperature()-1);
+        if (getTemperature() > MIN_TEMPERATURE && this.airConditioner != null) {
+            setTemperature(getTemperature()-airConditioner.calculateCapability(surfaceSize*height));
             return true;
         } else {
             return false;
