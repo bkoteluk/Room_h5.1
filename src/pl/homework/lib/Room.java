@@ -14,14 +14,14 @@ public class Room {
     }
 
     public Room(double surfaceSize,double height, double temperature) {
-        setHeight(height);
-        setSurfaceSize(surfaceSize);
-        setTemperature(temperature);
+        this.height= height;
+        this.surfaceSize = surfaceSize;
+        this.temperature = temperature;
     }
 
     public Room(double surfaceSize,double height, double temperature, AirConditioner airConditioner) {
         this(surfaceSize, height, temperature);
-        setAirConditioner(airConditioner);
+        this.airConditioner = airConditioner;
 //        setTemperature(temperature);
     }
 

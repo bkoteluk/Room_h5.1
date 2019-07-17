@@ -9,7 +9,7 @@ public class AirConditioner {
     }
 
     public AirConditioner(double capability) {
-        setCapability(capability);
+        this.capability = capability;
     }
 
     public double getCapability() {
