@@ -6,7 +6,7 @@ import pl.homework.util.RoomUtility;
 
 public class RoomTest {
 
-    public static final double MIN_TEMPERATURE = 21.5;
+//    public static final double MIN_TEMPERATURE = 21.5;
 
     public static void main(String[] args) {
         AirConditioner airConditioner = new AirConditioner(8);

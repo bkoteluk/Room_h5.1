@@ -1,8 +1,11 @@
 package pl.homework.lib;
 
-import static pl.homework.app.RoomTest.MIN_TEMPERATURE;
+//import static pl.homework.app.RoomTest.MIN_TEMPERATURE;
 
 public class Room {
+
+    public static final double MIN_TEMPERATURE = 21.5;
+
     private double surfaceSize;
 //    Pole określające wysokoćś pomieszczenia umożliwi wyliczenie kubatury : surfaceSize*height
     private double height;
